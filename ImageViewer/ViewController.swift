@@ -48,7 +48,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let currentImageUrl = imageUrls[indexPath.row]
         
         let imageView = UIImageView()
-//        imageView.backgroundColor = .red
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         guard let url = URL(string: currentImageUrl) else { return cell }
         imageView.sd_setImage(with: url,
                               placeholderImage: UIImage(named: "placeholder-2.png"),
@@ -56,13 +56,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                               completed: nil)
         cell.addSubview(imageView)
         
-        imageView.frame = cell.bounds
+        let constraints = [
+            imageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20),
+            imageView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20),
+            imageView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -20)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 200
     }
     
     
