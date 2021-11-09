@@ -27,8 +27,8 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        setupTableView()
         
+        setupTableView()
     }
     
     func setupTableView() {
@@ -47,20 +47,30 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         let currentImageUrl = imageUrls[indexPath.row]
         
+        guard let url = URL(string: currentImageUrl) else { return cell }
+        
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        guard let url = URL(string: currentImageUrl) else { return cell }
         imageView.sd_setImage(with: url,
                               placeholderImage: UIImage(named: "placeholder-2.png"),
                               options: [.continueInBackground, .progressiveLoad],
                               completed: nil)
+        
+        let metaDataLabel = UILabel()
+        metaDataLabel.translatesAutoresizingMaskIntoConstraints = false
+        metaDataLabel.text = "Format of this picture is .jpg"
+        
         cell.addSubview(imageView)
+        cell.addSubview(metaDataLabel)
         
         let constraints = [
             imageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20),
             imageView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20),
             imageView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -20),
-            imageView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -20)
+            imageView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -20),
+            
+            metaDataLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
+            metaDataLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
         ]
         
         NSLayoutConstraint.activate(constraints)
