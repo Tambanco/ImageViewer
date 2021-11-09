@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3D3117E3420100E74A2EF047 /* Pods_ImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C983A1FAB9DAD9F3645530B /* Pods_ImageViewer.framework */; };
+		494DADDC273AAD11004EB353 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DADDB273AAD11004EB353 /* InfoViewController.swift */; };
 		4985A7C7273A63500034CE95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985A7C6273A63500034CE95 /* AppDelegate.swift */; };
 		4985A7C9273A63500034CE95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985A7C8273A63500034CE95 /* SceneDelegate.swift */; };
 		4985A7CB273A63500034CE95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985A7CA273A63500034CE95 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		27AC1299AD4408C0A1F4F0D2 /* Pods-ImageViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageViewer.release.xcconfig"; path = "Target Support Files/Pods-ImageViewer/Pods-ImageViewer.release.xcconfig"; sourceTree = "<group>"; };
+		494DADDB273AAD11004EB353 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4985A7C3273A63500034CE95 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4985A7C6273A63500034CE95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4985A7C8273A63500034CE95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4985A7C6273A63500034CE95 /* AppDelegate.swift */,
 				4985A7C8273A63500034CE95 /* SceneDelegate.swift */,
 				4985A7CA273A63500034CE95 /* ViewController.swift */,
+				494DADDB273AAD11004EB353 /* InfoViewController.swift */,
 				4985A7CC273A63500034CE95 /* Main.storyboard */,
 				4985A7CF273A63520034CE95 /* Assets.xcassets */,
 				4985A7D1273A63520034CE95 /* LaunchScreen.storyboard */,
@@ -80,7 +83,6 @@
 				C35BEB838BA8B20E3FD4A3B5 /* Pods-ImageViewer.debug.xcconfig */,
 				27AC1299AD4408C0A1F4F0D2 /* Pods-ImageViewer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +210,7 @@
 			files = (
 				4985A7CB273A63500034CE95 /* ViewController.swift in Sources */,
 				4985A7C7273A63500034CE95 /* AppDelegate.swift in Sources */,
+				494DADDC273AAD11004EB353 /* InfoViewController.swift in Sources */,
 				4985A7C9273A63500034CE95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

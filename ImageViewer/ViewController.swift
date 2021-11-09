@@ -83,5 +83,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showInfoViewController()
+    }
+    
+    func showInfoViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let infoVC = storyboard.instantiateViewController(identifier: "InfoViewController")
+        show(infoVC, sender: self)
+    }
     
 }
