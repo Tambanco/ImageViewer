@@ -50,7 +50,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let imageView = UIImageView()
 //        imageView.backgroundColor = .red
         guard let url = URL(string: currentImageUrl) else { return cell }
-        imageView.sd_setImage(with: url, completed: nil)
+        imageView.sd_setImage(with: url,
+                              placeholderImage: UIImage(named: "placeholder-2.png"),
+                              options: [.continueInBackground, .progressiveLoad],
+                              completed: nil)
         cell.addSubview(imageView)
         
         imageView.frame = cell.bounds
