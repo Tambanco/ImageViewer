@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         setupTableView()
         
     }
@@ -46,7 +48,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let currentImageUrl = imageUrls[indexPath.row]
         
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+//        imageView.backgroundColor = .red
+        guard let url = URL(string: currentImageUrl) else { return cell }
+        imageView.sd_setImage(with: url, completed: nil)
         cell.addSubview(imageView)
         
         imageView.frame = cell.bounds
@@ -55,7 +59,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 400
     }
     
     
