@@ -10,6 +10,8 @@ import SDWebImage
 
 class ViewController: UIViewController {
     
+    let urlOfPhotos = "https://jsonplaceholder.typicode.com/photos"
+    
     let imageUrls = ["https://images.unsplash.com/photo-1509803874385-db7c23652552?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjg0Mjk0fQ",
                      "https://images.unsplash.com/photo-1472190649224-495422e1b602?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjg0Mjk0fQ",
                      "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjg0Mjk0fQ",
@@ -25,14 +27,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
+        fetchPhotoInfo(url: urlOfPhotos)
         setupTableView()
+        
+        
     }
     
     func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func fetchPhotoInfo(url: String) {
+        guard let url = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+        guard let data = data else { return }
+            print(data)
+            
+            do {
+                let json = try JSONDecoder().decode([PhotoJSON].self, from: data)
+                print(json)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
     }
 }
 
